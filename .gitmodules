@@ -5,7 +5,7 @@
 [submodule "core"]
 	path = core
 	url = https://github.com/kiendv-matech/Connect-SDK-iOS-Core.git
-	branch = feature/manhpd
+	branch = feature/hieutt_firetv
 [submodule "modules/firetv"]
 	path = modules/firetv
 	url = https://github.com/ConnectSDK/Connect-SDK-iOS-FireTV.git
