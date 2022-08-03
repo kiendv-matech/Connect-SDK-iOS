@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
                      :submodules => true }
 
   s.xcconfig = {
-      "OTHER_LDFLAGS" => "$(inherited) -ObjC"
+      "OTHER_LDFLAGS" => "$(inherited) -ObjC -lc++"
   }
 
   s.requires_arc = true
@@ -117,5 +117,21 @@ Pod::Spec.new do |s|
     sp.xcconfig = {
         "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
     }
+  end
+  s.subspec 'FireTV' do |sp|
+    fire_dir = "modules/firetv"
+
+    sp.dependency 'ConnectSDK/Core'
+    sp.source_files = "#{fire_dir}/**/*.{h,m}"
+    sp.exclude_files = "#{fire_dir}/*Tests/**/*"
+    sp.private_header_files = "#{fire_dir}/**/*_Private.h"
+
+    # cast_version = "2.7.1"
+    # sp.dependency "google-cast-sdk", cast_version
+    # sp.framework = "Frameworks/GoogleCast"
+    sp.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
+#    sp.xcconfig = {
+#        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
+#    }
   end
 end
