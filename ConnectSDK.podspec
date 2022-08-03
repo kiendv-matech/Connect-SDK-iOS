@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC -lc++"
   }
-
+  s.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
   s.requires_arc = true
   s.libraries = "z", "icucore"
   s.prefix_header_contents = <<-PREFIX
@@ -129,7 +129,7 @@ Pod::Spec.new do |s|
     # cast_version = "2.7.1"
     # sp.dependency "google-cast-sdk", cast_version
     # sp.framework = "Frameworks/GoogleCast"
-    sp.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
+#    sp.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
 #    sp.xcconfig = {
 #        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
 #    }
