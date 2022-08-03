@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
       "OTHER_LDFLAGS" => "$(inherited) -ObjC -lc++"
   }
   s.vendored_frameworks = "modules/firetv/Frameworks/AmazonFling.framework", "modules/firetv/Frameworks/Bolts.framework"
-  s.weak_frameworks = "AdSupport.framework", "CFNetwork.framework", "Security.framework", "SystemConfiguration.framework"
+  s.weak_frameworks = "AdSupport", "CFNetwork", "Security", "SystemConfiguration"
   s.requires_arc = true
   s.libraries = "z", "icucore"
   s.prefix_header_contents = <<-PREFIX
@@ -124,9 +124,8 @@ Pod::Spec.new do |s|
 
     sp.dependency 'ConnectSDK/Core'
     sp.source_files = "#{fire_dir}/**/*.{h,m}"
-    sp.exclude_files = "#{fire_dir}/*Tests/**/*"
+    sp.exclude_files = "#{fire_dir}/*Tests/**/*", "#{fire_dir}/Frameworks/"
     sp.private_header_files = "#{fire_dir}/**/*_Private.h"
-    sp.exclude_files  'Frameworks/**'
     # cast_version = "2.7.1"
     # sp.dependency "google-cast-sdk", cast_version
     # sp.framework = "Frameworks/GoogleCast"
