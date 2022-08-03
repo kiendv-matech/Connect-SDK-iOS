@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC -lc++"
   }
-  s.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
+  s.vendored_frameworks = "modules/firetv/Frameworks/AmazonFling.framework", "modules/firetv/Frameworks/Bolts.framework"
   s.requires_arc = true
   s.libraries = "z", "icucore"
   s.prefix_header_contents = <<-PREFIX
