@@ -38,8 +38,9 @@ Pod::Spec.new do |s|
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC -lc++"
   }
-  s.vendored_frameworks = "modules/firetv/Frameworks/AmazonFling.framework", "modules/firetv/Frameworks/Bolts.framework", "core/Frameworks/LGCast/GStreamerForLGCast.framework", "core/Frameworks/LGCast/LGCast.framework"
-  s.weak_frameworks = "AdSupport", "CFNetwork", "Security", "SystemConfiguration"
+  s.vendored_frameworks = "modules/firetv/Frameworks/AmazonFling.framework", "modules/firetv/Frameworks/Bolts.framework"
+  #, "core/Frameworks/LGCast/GStreamerForLGCast.framework", "core/Frameworks/LGCast/LGCast.framework"
+  s.weak_frameworks = "AdSupport", "CFNetwork", "Security", "SystemConfiguration" , "WebKit"
   s.requires_arc = true
   s.libraries = "z", "icucore"
   s.prefix_header_contents = <<-PREFIX
