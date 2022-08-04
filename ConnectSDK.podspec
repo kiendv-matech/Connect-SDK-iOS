@@ -38,7 +38,8 @@ Pod::Spec.new do |s|
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC -lc++"
   }
-
+  s.vendored_frameworks = "modules/firetv/Frameworks/AmazonFling.framework", "modules/firetv/Frameworks/Bolts.framework", "core/Frameworks/LGCast/GStreamerForLGCast.framework", "core/Frameworks/LGCast/LGCast.framework"
+  s.weak_frameworks = "AdSupport", "CFNetwork", "Security", "SystemConfiguration"
   s.requires_arc = true
   s.libraries = "z", "icucore"
   s.prefix_header_contents = <<-PREFIX
@@ -89,7 +90,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |sp|
     sp.source_files  = "ConnectSDKDefaultPlatforms.h", "core/**/*.{h,m}"
-    sp.exclude_files = (non_arc_files.dup << "core/ConnectSDK*Tests/**/*")
+    sp.exclude_files = "core/Frameworks/asi-http-request/External/Reachability/*.{h,m}",
+    "core/Frameworks/asi-http-request/Classes/*.{h,m}", "core/ConnectSDK*Tests/**/*", "core/Frameworks/LGCast"
     sp.private_header_files = "core/**/*_Private.h"
     sp.requires_arc = true
 
@@ -123,13 +125,12 @@ Pod::Spec.new do |s|
 
     sp.dependency 'ConnectSDK/Core'
     sp.source_files = "#{fire_dir}/**/*.{h,m}"
-    sp.exclude_files = "#{fire_dir}/*Tests/**/*"
+    sp.exclude_files = "#{fire_dir}/*Tests/**/*", "#{fire_dir}/Frameworks/"
     sp.private_header_files = "#{fire_dir}/**/*_Private.h"
-
     # cast_version = "2.7.1"
     # sp.dependency "google-cast-sdk", cast_version
     # sp.framework = "Frameworks/GoogleCast"
-    sp.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
+#    sp.vendored_frameworks = "Frameworks/AmazonFling.framework", "Bolts.framework"
 #    sp.xcconfig = {
 #        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
 #    }
