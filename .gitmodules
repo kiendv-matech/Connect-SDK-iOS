@@ -8,4 +8,4 @@
 	branch = feature/hieutt_firetv
 [submodule "modules/firetv"]
 	path = modules/firetv
-	url = https://github.com/ConnectSDK/Connect-SDK-iOS-FireTV.git
+	url = https://github.com/hieuttmatech/Connect-SDK-iOS-FireTV.git
