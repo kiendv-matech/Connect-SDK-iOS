@@ -21,6 +21,6 @@ DerivedData
 Pods
 
 #GoogleCast
-ConnectSDK/Frameworks/GoogleCast.framework
+# ConnectSDK/Frameworks/GoogleCast.framework
 /core
-/modules/firetv
+# /modules/firetv
